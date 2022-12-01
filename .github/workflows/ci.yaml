@@ -1,4 +1,4 @@
-name: Python
+name: CI
 
 on:
   push:
@@ -6,24 +6,17 @@ on:
 
 jobs:
   build_python:
-
-    strategy:
-      fail-fast: false
-      matrix:
-        runner: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.9", "3.10", "3.11"]
-
-    runs-on: ${{matrix.runner}}
-    name: OS ${{matrix.runner}} Python ${{matrix.python-version}}
+    runs-on: ubuntu-latest
+    name: CI
 
     steps:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python 3.11
       uses: actions/setup-python@v2
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.11
 
     - name: Install dependencies
       run: pip install -r requirements.txt
