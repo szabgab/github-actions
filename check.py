@@ -44,7 +44,7 @@ for repo in repos:
         }:
             errors.append(f"ERROR: Incorrect 'on' field: '{config[True]}' in {repo}")
 
-       if ['test'] != list(config['jobs'].keys()):
+        if ['test'] != list(config['jobs'].keys()):
             errors.append(f"ERROR: Incorrect job names: '{config['jobs'].keys()}' in {repo}")
             continue
 
