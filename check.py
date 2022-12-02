@@ -18,6 +18,7 @@ repos = [
     'https://github.com/szabgab/github-actions-perl-build/',
     'https://github.com/szabgab/github-actions-perl-makefile/',
     'https://github.com/szabgab/github-actions-perl-dist-zilla/',
+    'https://github.com/szabgab/github-actions-crystal',
 ]
 
 errors = []
