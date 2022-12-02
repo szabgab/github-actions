@@ -59,6 +59,10 @@ for repo in repos:
         if 'matrix' not in config['jobs']['test']['strategy']:
             errors.append(f"ERROR: no matrix in '{config['jobs']['test']['strategy']}' in {repo}")
 
+        # TODO: Check if the checkout step is v3, but what should be the name?
+        # if config['jobs']['test']['steps'][0] != {'name': 'Checkout', 'uses': 'actions/checkout@v3'}:
+        #     errors.append(f"ERROR first step is not the expected Checkout. It is {config['jobs']['test']['steps'][0]} in {repo}")
+
         if limit:
             print(config)
             exit()
