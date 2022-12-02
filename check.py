@@ -3,6 +3,7 @@ from contextlib import contextmanager
 import tempfile
 import shutil
 import yaml
+import sys
 
 @contextmanager
 def tmpdir():
@@ -20,6 +21,10 @@ repos = [
     'https://github.com/szabgab/github-actions-perl-dist-zilla/',
     'https://github.com/szabgab/github-actions-crystal',
 ]
+
+limit = False
+if len(sys.argv) == 2:
+    limit = True
 
 errors = []
 for repo in repos:
@@ -54,10 +59,9 @@ for repo in repos:
         if 'matrix' not in config['jobs']['test']['strategy']:
             errors.append(f"ERROR: no matrix in '{config['jobs']['test']['strategy']}' in {repo}")
 
-        #print(config)
-        #continue
-        #exit()
-
+        if limit:
+            print(config)
+            exit()
 
 if errors:
     for error in errors:
