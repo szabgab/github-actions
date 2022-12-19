@@ -22,6 +22,7 @@ repos = [
     'https://github.com/szabgab/github-actions-crystal/',
     'https://github.com/szabgab/github-actions-redis/',
     'https://github.com/szabgab/github-actions-solr/',
+    'https://github.com/szabgab/github-actions-postgresql',
 ]
 
 limit = False
